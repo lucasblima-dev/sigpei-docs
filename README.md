@@ -20,5 +20,5 @@ Docs da Docs em breve...
 
 3.  **Ainda na raiz do projeto (após instalar as dependências):**
     ```bash
-    npm install
+    npm run dev
     ```
