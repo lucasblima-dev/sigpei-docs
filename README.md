@@ -18,9 +18,6 @@ Docs da Docs em breve...
     npm install
     ```
 
-### Por fim:
-
-Para rodar o projeto localmente:
 3.  **Ainda na raiz do projeto (após instalar as dependências):**
     ```bash
     npm install
