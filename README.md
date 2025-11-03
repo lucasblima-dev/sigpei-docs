@@ -21,7 +21,7 @@ Docs da Docs em breve...
 ### Por fim:
 
 Para rodar o projeto localmente:
-
+3.  **Ainda na raiz do projeto (após instalar as dependências):**
     ```bash
-    npm run dev
+    npm install
     ```
