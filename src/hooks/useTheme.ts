@@ -1,0 +1,8 @@
+import { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeProvider';
+
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+  // Inserir validação de erro aqui (depois)
+  return context;
+};

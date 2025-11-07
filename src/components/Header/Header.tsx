@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { FiExternalLink, FiMenu, FiMoon, FiSearch, FiX } from 'react-icons/fi'
+import { FiExternalLink, FiMenu, FiMoon, FiSearch, FiSun, FiX } from 'react-icons/fi'
 import type { HeaderProps } from './Header.types';
+import { useTheme } from '../../hooks/useTheme';
 
 export const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
+  const { theme, toggleTheme } = useTheme();
+
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,14 +56,30 @@ export const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
             <div className="w-px h-6 bg-border mx-1"></div>
           </div>
           <button
-            onClick={() => console.log("Tema alterado")}
+            onClick={toggleTheme}
             className="icon-button"
-            title='Alternar para tema escuro'
+            title={theme === 'light' ? 'Mudar para o tema escuro' : 'Mudar para o tema claro'}
           >
-            <FiMoon size={20} />
+            {theme === 'light' ? <FiMoon size={20} /> : <FiSun size={20} />}
           </button>
         </div>
       </div>
+
+      {isSearchVisible && (
+        <div className="md:hidden px-4 py-3 bg-surface border-b border-border shadow-inner">
+          <form onSubmit={handleSearch} className="relative">
+            <input
+              type="text"
+              placeholder="Buscar na documentação..."
+              className="search-input"
+              value={searchQuery}
+              onChange={e => setSearchQuery(e.target.value)}
+              autoFocus
+            />
+            <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-secondary" />
+          </form>
+        </div>
+      )}
     </header>
   )
 }
