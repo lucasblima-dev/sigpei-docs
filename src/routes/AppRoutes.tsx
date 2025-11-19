@@ -15,6 +15,12 @@ export const AppRoutes: React.FC = () => {
         <Route path='login' element={<LoginPage />} />
         <Route path='criar-conta' element={<CriarContaPage />} />
         <Route path='recuperar-senha' element={<RecuperarSenhaPage />} />
+        <Route path="*" element={
+          <div className="flex flex-col items-center justify-center text-center">
+            <h1 className="text-6xl mb-4">
+              <span className='text-(--primary)'>404</span> - Página não encontrada
+            </h1>
+          </div>} />
       </Route>
     </Routes>
   )
